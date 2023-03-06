@@ -1,38 +1,40 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.contact {
+  /* float: right; */
+  margin: 2% 20% 4% 30%;
+  /* margin: auto; */
+  padding: 2% 4%;
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  /* margin: auto; */
+  text-align: center;
+  height: 400px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contact__detail {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  column-gap: 20px;
+  float: left;
 }
-
-.App-link {
-  color: #61dafb;
+.contact__userimg {
+  width: 100%;
+  height: 280px;
+  border-radius: 15%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact__description {
+  margin-top: 7%;
 }
