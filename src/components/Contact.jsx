@@ -12,11 +12,14 @@ export const Contact = () => {
   const navigate = useNavigate();
   // delete functinality
   const DeleteHandler = (e) => {
+    let confirm = window.confirm("Do you want to delete contact .");
     for (let i = 0; i < data.data.length; i++) {
       if (data.data[i].id === e) {
-        data.data.splice(i, 1);
-        data.setData([...data.data]);
-        navigate("/");
+        if (confirm) {
+          data.data.splice(i, 1);
+          data.setData([...data.data]);
+          navigate("/");
+        }
       }
     }
   };

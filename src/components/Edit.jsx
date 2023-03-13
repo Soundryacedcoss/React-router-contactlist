@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { dataContext } from "../App";
@@ -13,11 +12,13 @@ export const Edit = () => {
   const [img, setImg] = useState("");
   useEffect(() => {
     if (location.state.from === "True") {
+      name.current.value = "";
+      link.current.value = "";
     } else {
       name.current.value = location.state.from.login;
-      link.current.value = location.state.from.html_url;
+      link.current.value = location.state.from.url;
     }
-  }, []);
+  }, [location.state.from]);
   const UploadFileHandler = (event) => {
     // upload abd display image
     let p1 = URL.createObjectURL(event.target.files[0]);
@@ -30,8 +31,6 @@ export const Edit = () => {
       setMsg("Please enter link");
     } else if (profile.current.value === "") {
       setMsg("Please choose profile image");
-    } else if (type.current.value === "") {
-      setMsg("write your type");
     } else {
       // creating new contact
       if (location.state.from === "True") {
@@ -42,6 +41,7 @@ export const Edit = () => {
           type: type.current.value,
         };
         data.setData([...data.data, obj]);
+        setMsg("Contact created successfully.");
       } else {
         // here editing contact detail
         data.data.forEach((element) => {
@@ -51,6 +51,7 @@ export const Edit = () => {
             element.avatar_url = img;
           }
           data.setData([...data.data, element]);
+          setMsg("Contact edited successfully.");
         });
       }
     }
